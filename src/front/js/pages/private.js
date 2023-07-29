@@ -85,7 +85,8 @@ export const Private = () => {
                         <img className="img2" height="150px" width="200px" src={iconImageUrl}/>
                         <h5 className="card-title">Book a WE-Time session</h5>
                         <p className="card-text">Based on your convenience you can book a day and a time slot to spend time with your furry friend.</p>
-                        <button type="button" className="btn btn-secondary">STEP 2</button>
+                        <button type="button" className="btn btn-secondary">BOOK NOW</button>
+                        <a style={{float:"none"}} target="_blank"  href="https://booking.setmore.com/scheduleappointment/72728ae9-1046-476a-a21d-0b018938cbcc"><img border="none" src="https://storage.googleapis.com/full-assets/setmore/images/1.0/Settings/book-now-blue.svg" alt="Book an appointment with Hello Woof using Setmore"/></a>
                     </div>
                 </div>
                 <div className="card">
