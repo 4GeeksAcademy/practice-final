@@ -42,7 +42,7 @@ const createUser = async (event) => {
         password2 !== ''
     ){
        try {
-         const response = await fetch('https://sanghmitra2023-opulent-engine-9p74jjr7rw62prpj-3001.preview.app.github.dev/signup',{
+         const response = await fetch('https://sanghmitra2023-opulent-engine-9p74jjr7rw62prpj-3001.preview.app.github.dev/api/signup',{
             method: 'POST',
             body: JSON.stringify({
                 email: email,
@@ -54,7 +54,7 @@ const createUser = async (event) => {
         })
         if (response.ok){
             alert('Welcome')
-            navigate("/")
+            navigate("/private")
             return true
         }
        }
