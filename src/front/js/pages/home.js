@@ -8,7 +8,7 @@ export const Home = () => {
 
 	return (
 		<div className="text-center mt-5">
-			<h1>A new user?</h1>
+			<h1>Are you a new user?</h1>
 			<Link to="/signup" >
 				<h4>Create an account</h4>
 			</Link>
