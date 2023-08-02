@@ -15,7 +15,7 @@ export const Navbar = () => {
 		<nav className="navbar navbar-light bg-white">
 			<div className="container">
 				<Link to="/">
-					<span className="navbar-brand mb-0 h1"><img src={iconImageUrl} style={{ width: 90, height: 90 }}/>Hello Woof</span>
+					<span className="navbar-brand mb-0 h1"><img src={iconImageUrl} style={{ width: 70, height: 80 }}/>Hello Woof</span>
 				</Link>
 				
 					<div>
