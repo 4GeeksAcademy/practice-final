@@ -24,7 +24,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			login: async (email, password, navigate) => {
 				try {
 					const response = await fetch(
-						"https://sanghmitra2023-opulent-engine-9p74jjr7rw62prpj-3001.preview.app.github.dev/api/token",
+						"https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.preview.app.github.dev/api/token",
 						{
 							method: "POST",
 							headers: {
@@ -52,7 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getUser: async () => {
 				const store = getStore()
 				try {
-					const response = await fetch("https://sanghmitra2023-opulent-engine-9p74jjr7rw62prpj-3001.preview.app.github.dev/api/protected", {
+					const response = await fetch("https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.preview.app.github.dev/api/protected", {
 						headers: { Authorization: `Bearer ${store.authToken}` }
 					});
 					if (response.ok) {
@@ -70,7 +70,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loadUser: async () => {
 				const store = getStore();
 				try {
-					const response = await fetch("https://sanghmitra2023-opulent-engine-9p74jjr7rw62prpj-3001.preview.app.github.dev/api/user", {
+					const response = await fetch("https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.preview.app.github.dev/api/user", {
 						headers: { Authorization: `Bearer ${store.authToken}` }
 					});
 					if (response.ok) {
