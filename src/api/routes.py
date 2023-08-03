@@ -132,3 +132,9 @@ def delete_favorite_dog(id):
             return jsonify({'message': 'Favorite not found'}), 404
     else:
         return jsonify({'message': 'User not found'}), 404
+    
+# this only runs if `$ python src/app.py` is executed
+if __name__ == '__main__':
+    PORT = int(os.environ.get('PORT', 3000))
+    api.run(host='0.0.0.0', port=PORT, debug=False)
+
