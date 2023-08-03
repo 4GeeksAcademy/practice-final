@@ -102,6 +102,7 @@ export const Home = () => {
                         <div className="card-body">
                             <h6 className="card-title text-primary">Select a Dog</h6><br></br>
                             <p className="card-text">From our list of dogs you can select the dog or dogs you like the best.You can also select based on the breed.</p>
+                           { /*<button href="https://booking.setmore.com/scheduleappointment/72728ae9-1046-476a-a21d-0b018938cbcc">BOOK NOW</button>*/}
                         </div>
                     </div>
                 </div>
@@ -112,6 +113,7 @@ export const Home = () => {
                         <div className="card-body">
                             <h6 className="card-title text-primary">Book a WE-Time Session</h6><br></br>
                             <p className="card-text">Based on your convenience you can book a day and a time slot to spend time with your dog friend.</p>
+                            <iframe src="https://calendar.app.google/4EBxc71iNhmqoJ427" ></iframe>
                         </div>
                     </div>
                 </div>
@@ -122,6 +124,10 @@ export const Home = () => {
                         <div className="card-body">
                             <h6 className="card-title text-primary">Make Payment Online</h6><br></br>
                             <p className="card-text">You pay a token fee, which we call Donation. This amount goes for the welfare of the dogs in the dog shelter.</p>
+                                <Link to="https://donate.stripe.com/test_4gwdTjfu0gbF9GgaEE" >
+                                     <button>BOOK NOW</button>
+                                </Link>
+                            
                         </div>
                     </div>
                 </div>

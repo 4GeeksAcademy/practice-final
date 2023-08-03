@@ -23,6 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			login: async (email, password, navigate) => {
 				try {
+					console.log("before fetch")
 					const response = await fetch(
 						"https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.preview.app.github.dev/api/token",
 						{
@@ -36,6 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							}),
 						}
 					);
+					console.log("after response")
 					if (response.ok) {
 						const data = await response.json()
 						setStore({ authToken: data.token });
