@@ -56,19 +56,18 @@ export const Home = () => {
 
         <div className="container bg-warning p-6 m-7">
             <h2 className="p-4">Who is <span className="text-info">Hello Woof</span> for?</h2><br></br>
-                <div className="container d-flex"> 
+                <div className="container d-flex pb-5"> 
 
-                    <div className="container bg-warning mb-7 text-start" >
+                    <div className="container d-grid gap-3 bg-warning mb-7 text-start" >
                         <h3 className="text-white">An ardent dog-lover, you have always wanted one but...</h3><br></br>
                         <h6>💔 Haven't got enough space at home and don't want to see your dog caged up in a tiny apartment!</h6>
                         <h6>💔 Haven't got enough time everyday to walk or play with the dog and it affects you that your dog misses exercise! </h6>
                         <h6>💔 Need to travel frequently for business or personal reasons and it breaks your heart to leave the dog alone!</h6>
                         <h6>💔 Your partner/children are allergic to dogs and their health comes first!</h6>
                         <h6>💔 Your present economic condition doesn't allow you to have a dog for it means new expenditures</h6>
-                        <h6>💔 Are not sure if you can shoulder the responsibilities and turn out to be a good dog-owner</h6>
                     </div>
                     <div>
-                        <img className="rounded-circle m-4" width="300"  height="300" src={dog3ImageUrl}/ >
+                        <img className="rounded-circle" width="300"  height="300" src={dog3ImageUrl}/ >
                     </div>
                   
                 </div>
@@ -76,9 +75,9 @@ export const Home = () => {
 
         <div className="container bg-warning bg-gradient p-6 m-7">
             <h2 className="p-4">How can <span className="text-info">Hello Woof</span> help you?</h2><br></br>
-                <div className="container d-flex"> 
+                <div className="container d-flex pb-5"> 
 
-                    <div className="container bg-warning bg-gradient mb-7 text-start">
+                    <div className="container d-grid gap-3 bg-warning bg-gradient mb-7 text-start">
                         <h4 className="text-white">There are many dogs in the dog shelters that are waiting to get adopted or have lost all hopes of ever getting adopted. They also need and deserve love, affection and human attention. </h4><br></br>
                         <h6>💖 We try to bring people who want a dog but cannot have one at home and such dogs together.</h6>
                         <h6>💖 It's very simple. You select a dog or as many dogs as you like to play with and spend time with. We call it "WE-Time"</h6>
@@ -86,7 +85,7 @@ export const Home = () => {
                         <h6>💖 You need to pay a token amout, which is called Donation. This amount is used to provide a better life to the dogs at the dog shelter</h6>
                     </div>
                     <div>
-                        <img className="rounded-circle m-4" width="300"  height="300" src={dog1ImageUrl}/ >
+                        <img className="rounded-circle" width="300"  height="300" src={dog1ImageUrl}/ >
                     </div>
                   
                 </div>
@@ -112,7 +111,7 @@ export const Home = () => {
                             <img className="card-img-top" src={iconImageUrl} style={{ width: 300, height: 260 }}/>
                         <div className="card-body">
                             <h6 className="card-title text-primary">Book a WE-Time Session</h6><br></br>
-                            <p className="card-text">Based on your convenience you can book a day and a time slot to spend time with your furry friend.</p>
+                            <p className="card-text">Based on your convenience you can book a day and a time slot to spend time with your dog friend.</p>
                         </div>
                     </div>
                 </div>
@@ -122,7 +121,7 @@ export const Home = () => {
                             <img className="card-img-top" src={iconImageUrl} style={{ width: 300, height: 260 }}/>
                         <div className="card-body">
                             <h6 className="card-title text-primary">Make Payment Online</h6><br></br>
-                            <p className="card-text">You pay the token fee, which we call Donation.This amount goes for the welfare of the dogs in the dog shelter.</p>
+                            <p className="card-text">You pay a token fee, which we call Donation. This amount goes for the welfare of the dogs in the dog shelter.</p>
                         </div>
                     </div>
                 </div>
@@ -130,9 +129,9 @@ export const Home = () => {
         </div><hr></hr>
 
         <div className="container bg-warning bg-gradient p-6 m-7">
-            <h2>FAQs</h2>
+            <h2 className="p-4">FAQs</h2>
             <div className="accordion accordion-flush" id="accordionFlushExample">
-                <div className="accordion-item">
+                <div className="accordion-item  bg-warning bg-gradient">
                     <h2 className="accordion-header" id="flush-headingOne">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                             I am not technology-savy. Is this site for me?
@@ -142,7 +141,7 @@ export const Home = () => {
                         <div className="accordion-body">You don't need to be a technology expert to be able to use our services. Our website is created with a user-friendly interface so that people of all ages can easily access our services.</div>
                     </div>
                 </div>
-                <div className="accordion-item">
+                <div className="accordion-item bg-warning bg-gradient">
                     <h2 className="accordion-header" id="flush-headingTwo">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                             How do I select a dog?
@@ -152,7 +151,7 @@ export const Home = () => {
                         <div className="accordion-body">You can browse the images of the dogs and if you like any, click on it to get more details.</div>
                     </div>
                 </div>
-                <div className="accordion-item">
+                <div className="accordion-item  bg-warning bg-gradient">
                     <h2 className="accordion-header" id="flush-headingThree">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                             What if someday I am not able to make it to my WE-Time session?
