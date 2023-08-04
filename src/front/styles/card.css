@@ -1,0 +1,27 @@
+.buttonContainer {
+    display: flex;
+    justify-items: center;
+  }
+  
+  .favoritesCards {
+    border-radius: 20px;
+    margin-left: auto;
+    text-align: end;
+    align-items: center;
+    justify-content: center;
+    padding-right: 1rem;
+    display: flex;
+  }
+  
+  .favoritesCards:hover {
+    background-color: pink
+  }
+  
+  .favorites .btn {
+    border-radius: 20px;
+    justify-content: start;
+    padding-left: 1rem;
+    display: flex;
+    text-align: start;
+    margin-right: auto;
+  }

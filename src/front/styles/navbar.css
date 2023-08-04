@@ -1,0 +1,23 @@
+.deleteButton {
+    display: flex;
+    text-align: start;
+  }
+  
+  .favorites {
+    border-radius: 12px;
+    border-color: black;
+    margin-left: auto;
+    padding-right: 1rem;
+    display: flex;
+  }
+  
+  .dropdown-menu {
+    border-radius: 12px;
+    border-color: black;
+  }
+  
+  .emptyList {
+    display: flex;
+    justify-content: center;
+    font-size: large;
+  }

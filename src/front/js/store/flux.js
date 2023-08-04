@@ -17,6 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			authToken: null,
 			user: null,
 			users: [],
+			dog: [],
 		},
 		actions: {
 
@@ -93,6 +94,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 
+			addFavorites: (name) => {
+				const store = getStore();
+				setStore({ favorites: [...store.favorites, name] });
+			  },
+		
+			  deleteItem: (i) => {
+				const store = getStore();
+				let newFavorites = store.favorites.filter((item, index) => {
+				  return i != index;
+				});
+				setStore({ favorites: newFavorites });
+			  },
+		
+			  loadSomeData: () => {
+				fetch("https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.app.github.dev/api/dog/")
+				  .then((res) => res.json())
+				  .then((data) => {
+					console.log(data);
+					setStore({ people: data.results });
+				  })
+				  .catch((err) => console.error(err));
+			  }
 
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
