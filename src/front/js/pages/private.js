@@ -25,7 +25,7 @@ export const Private = () => {
     return (
     <div>
         <>
-            {user !== null ? `hello ${user.name}` : <></> }
+            {user !== null ? `hello ${user.email}` : <></> }
 
         </>
         <div className="mt-5 bg bg-dark">

@@ -1,15 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import iconImageUrl from "../../img/icon.png";
 
 export const Navbar = () => {
 
-	const { actions } = useContext(Context)
+	const { store, actions } = useContext(Context);
 	const location = useLocation();
 	const navigate = useNavigate()
+	const [showHover, setShowHover] = useState(-1);
 
 	const logoutCondition = location.pathname !== "/login" && location.pathname !== "/" && location.pathname !== "/signup"
+	
 
 	return (
 		<nav className="navbar navbar-light bg-white">
@@ -29,7 +31,7 @@ export const Navbar = () => {
 						</Link>
 					</div>	
 
-					<div className="dropdown ml-auto">
+					{/*<div className="dropdown ml-auto">
 						<button
 							className="btn btn-warning dropdown-toggle me-5 favorites"
 							type="button"
@@ -85,7 +87,7 @@ export const Navbar = () => {
 									<p className="emptyList fw-bold">No favorites yet</p>
 								)}
 							</ul>
-					</div>
+								</div>*/}
 				
 				
 				<div className="ml-auto">

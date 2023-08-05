@@ -3,7 +3,7 @@ import { useForm } from "../hooks/useform";
 import { Link, useNavigate } from "react-router-dom";
 
 
-export const SingUp = () => {
+export const SignUp = () => {
     const navigate = useNavigate();
 
 
@@ -42,7 +42,7 @@ const createUser = async (event) => {
         password2 !== ''
     ){
        try {
-         const response = await fetch('https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.preview.app.github.dev/api/signup',{
+         const response = await fetch('https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.app.github.dev/api/signup',{
             method: 'POST',
             body: JSON.stringify({
                 email: email,

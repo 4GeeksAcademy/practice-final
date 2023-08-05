@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../../styles/card.css";
+import "../../styles/card.css";
 import { useContext } from "react";
-import { Context } from "../../store/appContext";
+import { Context } from "../store/appContext";
 
 const Card = (props) => {
   const { store, actions } = useContext(Context);
@@ -36,7 +36,7 @@ const Card = (props) => {
               }
             }}>
             <div style={{ marginLeft: "10px" }}>
-              <i className="fa fa-heart text-danger"></i>
+              <i className="fa fa-heart"></i>
             </div>
           </button>
         </div>

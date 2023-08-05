@@ -18,6 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			user: null,
 			users: [],
 			dog: [],
+			favorite: [],
 		},
 		actions: {
 
@@ -26,7 +27,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					console.log("before fetch")
 					const response = await fetch(
-						"https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.preview.app.github.dev/api/token",
+						"https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.app.github.dev/api/token",
 						{
 							method: "POST",
 							headers: {
@@ -55,7 +56,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getUser: async () => {
 				const store = getStore()
 				try {
-					const response = await fetch("https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.preview.app.github.dev/api/protected", {
+					const response = await fetch("https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.app.github.dev/api/protected", {
 						headers: { Authorization: `Bearer ${store.authToken}` }
 					});
 					if (response.ok) {
@@ -73,7 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loadUser: async () => {
 				const store = getStore();
 				try {
-					const response = await fetch("https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.preview.app.github.dev/api/user", {
+					const response = await fetch("https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.app.github.dev/api/user", {
 						headers: { Authorization: `Bearer ${store.authToken}` }
 					});
 					if (response.ok) {
@@ -99,7 +100,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorites: [...store.favorites, name] });
 			  },
 		
-			  deleteItem: (i) => {
+			deleteItem: (i) => {
 				const store = getStore();
 				let newFavorites = store.favorites.filter((item, index) => {
 				  return i != index;
@@ -107,8 +108,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorites: newFavorites });
 			  },
 		
-			  loadSomeData: () => {
-				fetch("https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.app.github.dev/api/dog/")
+			loadSomeData: () => {
+				fetch("https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.app.github.dev/api/dog")
 				  .then((res) => res.json())
 				  .then((data) => {
 					console.log(data);
@@ -116,38 +117,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  })
 				  .catch((err) => console.error(err));
 			  }
-
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-
-			getMessage: async () => {
-				try{
-					// fetching data from the backend
-					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
-					const data = await resp.json()
-					setStore({ message: data.message })
-					// don't forget to return something, that is how the async resolves
-					return data;
-				}catch(error){
-					console.log("Error loading message from backend", error)
-				}
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			}
+			 
 		}
 	};
 };
