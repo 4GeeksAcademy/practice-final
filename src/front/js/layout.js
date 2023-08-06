@@ -14,6 +14,7 @@ import { Footer } from "./component/footer";
 import { SignUp } from "./pages/signup";
 import { Login } from "./pages/login";
 import { Private } from "./pages/private";
+import { Stripe } from "./pages/stripe";
 import { Forgot } from "./pages/forgot";
 
 //create your first component
@@ -34,6 +35,7 @@ const Layout = () => {
                         <Route element={<Login />} path="/login" />
                         <Route element={<SignUp />} path="/signup" />
                         <Route element={<Private />} path="/private" />
+                        <Route element={<Stripe />} path="/stripe" />
                         <Route element={<Forgot />} path="/forgot" />
                         <Route element={<Demo />} path="/demo" />
                         <Route path="/dog/:id" element={<DogView />} />

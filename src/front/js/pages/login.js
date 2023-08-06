@@ -4,6 +4,7 @@ import { useForm } from "../hooks/useform";
 import "../../styles/home.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Modal, Button } from 'react-bootstrap';
+import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 
 
 export const Login = () => {
@@ -21,6 +22,7 @@ export const Login = () => {
     const { email, password } = inputValues;
 	const [showModal, setShowModal] = useState(false);
 	const navigate = useNavigate();
+    const [ visible, setVisible] = useState(false);
     
 
 
@@ -60,8 +62,17 @@ export const Login = () => {
                 </div>
 
                 <div className="form-outline mb-4">
-                    <input type="password" id="form2Example27" className="form-control form-control-lg" name="password" value={password} onChange={handleInputChange} style={error.password ? errorStyle : {}} />
-                    <label className="form-label" >Password {error.password && <label className="text-danger text-opacity-50 fst-italic lh-1">Password is required</label>}</label>
+                    <div className=" row d-flex justify-between">
+                        <div>
+                            <input type={visible ? "text" : "password"} id="form2Example27" className="form-control form-control-lg" name="password" value={password} onChange={handleInputChange} style={error.password ? errorStyle : {}} />
+                            <label className="form-label" >Password {error.password && <label className="text-danger text-opacity-50 fst-italic lh-1">Password is required</label>}</label>
+                        </div>
+                        <div className="p-2" onClick ={()=> setVisible(!visible)}>
+                            {visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>}
+                        </div>
+                    </div>
+                    
+                    
                     <div className="mb-3 form-check">
                         <Link to="/forgot" >
                             <p>Forgot Password</p>

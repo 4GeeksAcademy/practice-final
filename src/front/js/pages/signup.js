@@ -1,6 +1,7 @@
 import React, {  useState } from "react";
 import { useForm } from "../hooks/useform";
 import { Link, useNavigate } from "react-router-dom";
+import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 
 
 export const SignUp = () => {
@@ -14,6 +15,7 @@ export const SignUp = () => {
     })
 
     const { email, password, password2 } = inputValues  
+    const [ visible, setVisible] = useState(false);
     
     const [error, setError] = useState({
         email: false,
@@ -88,6 +90,9 @@ const createUser = async (event) => {
                         <input style={error.password ? errorStyle : {}} type="password" name="password" id="form3Example1h" className="form-control" value={password} onChange={handleInputChange} />
                         {error.password && <div className="badge bg-danger text-wrap">Password is required</div>}
                         <label className="form-label" htmlFor="form3Example4c">Password</label>
+                        <div className="p-2" onClick ={()=> setVisible(!visible)}>
+                            {visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>}
+                        </div>
                     </div>
                 </div>
                 <div className="d-flex flex-row align-items-center mb-4">
@@ -95,7 +100,11 @@ const createUser = async (event) => {
                     <div className="form-outline flex-fill mb-0">
                         <input type="password" name="password2" id="form3Example4cd" className="form-control" value={password2} onChange={handleInputChange} />
                         <label className="form-label" htmlFor="form3Example4cd">Repeat your password</label>
+                        <div className="p-2" onClick ={()=> setVisible(!visible)}>
+                            {visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>}
+                        </div>
                     </div>
+                    
                 </div>
                 <div className="pt-1 mb-4">
 				<button type="submit" className="btn btn-primary btn-lg btn-block" onClick={createUser}>Submit</button>
