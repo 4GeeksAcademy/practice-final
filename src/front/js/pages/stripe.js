@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/stripe.css";
+import iconImageUrl from "../../img/icon.png";
 
 export const Stripe = () => (
   <section>
     <div className="product">
       <img
-        src="https://i.imgur.com/EHyR2nP.png"
-        alt="The cover of Stubborn Attachments"
+        src={iconImageUrl}
+        alt="A dog icon"
       />
       <div className="description">
-      <h3>Stubborn Attachments</h3>
-      <h5>$20.00</h5>
+      <h3>Book a WE-Time session</h3>
+      <h5>€5.00</h5>
       </div>
     </div>
     <form action="/create-checkout-session" method="POST">
@@ -35,12 +36,12 @@ export default function App() {
     const query = new URLSearchParams(window.location.search);
 
     if (query.get("success")) {
-      setMessage("Order placed! You will receive an email confirmation.");
+      setMessage("You have made the payment! You will receive an email confirmation.");
     }
 
     if (query.get("canceled")) {
       setMessage(
-        "Order canceled -- continue to shop around and checkout when you're ready."
+        "Payment canceled -- continue browsing the dogs and checkout when you're ready."
       );
     }
   }, []);
