@@ -1,20 +1,32 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => (
 	<footer className="footer mt-auto py-3 text-center">
-		<p>
-			@2023 All Rights Reserved
-		</p>
+		
 		<div className="d-flex justify-content-end">
 		<div className="m-3">
-			FAQs
+			<Link to= "/">
+					<span>Home</span>
+			</Link>
 		</div>
-		<div>
+		<div className="m-3">
+			<Link to= "/frequentlyAskedQuestions">
+				<span>FAQs</span>
+			</Link>
+		</div>
+		<div className="m-3">
 			About Us
 		</div>
-		<div>
-			Contact
+		<div className="m-3">
+			<Link to= "/contact">
+				<span>Contact</span>
+			</Link>
 		</div>
+		
+		</div>
+		<div className="justify-content-center m-1">
+			@2023 All Rights Reserved
 		</div>
 	</footer>
 );

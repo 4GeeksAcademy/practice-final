@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./button.jsx";
 import iconImageUrl from "../../img/icon.png";
+import { Link } from "react-router-dom";
 
 
 const Card = (props) => {
@@ -12,11 +13,14 @@ const Card = (props) => {
 					<h3 className="card-title text-center">{props.title}</h3>
 					<p className="card-text">{props.description}</p>
 					<div className="App">
-						<Button
-							color="white"
-							backgroundColor="blue"
-							text="Learn More"
-						/>
+						<Link to="/login" >
+							<Button
+								color="white"
+								backgroundColor="blue"
+								text="Learn More"
+							/>
+						</Link>
+						
     				</div>
 				</div>
 			</div>

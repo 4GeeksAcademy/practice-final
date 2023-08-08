@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ text, backgroundColor, color, buttonFunc }) => {
+const Button = ({ text, backgroundColor, color }) => {
     const style = {
       color: color,
       backgroundColor: backgroundColor,
@@ -10,7 +10,7 @@ const Button = ({ text, backgroundColor, color, buttonFunc }) => {
       
     };
     return (
-        <button style={style} onClick={buttonFunc}>
+        <button style={style}>
           {text}
         </button>
     );

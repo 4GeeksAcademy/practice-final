@@ -2,6 +2,7 @@ import React from "react";
 import Button from "./button.jsx";
 import dog1ImageUrl from "../../img/dog1.jpg";
 import dog3ImageUrl from "../../img/dog3.jpg";
+import { Link } from "react-router-dom";
 
 const CardTwo = (props) => {
 	return (
@@ -34,7 +35,9 @@ const CardTwo = (props) => {
 							</div>
                 		
               		</div>
-					<h4 className="text-primary">To find out more<Button/></h4>
+					<h5 className="text-primary">To find out more
+						<Link to="/login" ><Button/></Link>
+					</h5>
             	</div>
         	</div>
 		</div>		
