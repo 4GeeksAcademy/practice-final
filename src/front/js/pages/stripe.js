@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+{/*import React, { useState, useEffect } from "react";
 import "../../styles/stripe.css";
 import iconImageUrl from "../../img/icon.png";
 
@@ -52,3 +52,4 @@ export default function App() {
     <ProductDisplay />
   );
 }
+*/}

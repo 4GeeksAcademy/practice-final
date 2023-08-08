@@ -8,11 +8,13 @@ const Card = (props) => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="card cardNumber1">
-      <p className="card-img-top" alt="dog"
-        style={{ width: "300px", height: "auto", borderRadius: "5px" }}>
-          {props.item.image}
-        </p>
+    <div className="card" style={{height: "550px", width:"400px"}}>
+      <div className="d-flex, justify-content-center">
+        <img className="card-img-top" alt="dog" src={props.item.image}
+          style={{ width: "300px",  borderRadius: "5px", objectFit: "cover" }}/>
+      </div>
+     
+      
         
       <div className="card-body">
         <h5 className="card-title">Name: {props.item.name}</h5>

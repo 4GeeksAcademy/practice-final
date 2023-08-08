@@ -113,7 +113,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  .then((res) => res.json())
 				  .then((data) => {
 					console.log(data);
-					setStore({ people: data.results });
+					setStore({ dog: data });
 				  })
 				  .catch((err) => console.error(err));
 			  }

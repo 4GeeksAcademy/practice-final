@@ -6,7 +6,7 @@ import { BackendURL } from "./component/backendURL";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
-import { DogView } from "./pages/aboutus";
+import { DogView } from "./pages/dogView";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -14,7 +14,6 @@ import { Footer } from "./component/footer";
 import { SignUp } from "./pages/signup";
 import { Login } from "./pages/login";
 import { Private } from "./pages/private";
-import { Stripe } from "./pages/stripe";
 import { Forgot } from "./pages/forgot";
 
 //create your first component
@@ -35,7 +34,6 @@ const Layout = () => {
                         <Route element={<Login />} path="/login" />
                         <Route element={<SignUp />} path="/signup" />
                         <Route element={<Private />} path="/private" />
-                        <Route element={<Stripe />} path="/stripe" />
                         <Route element={<Forgot />} path="/forgot" />
                         <Route element={<Demo />} path="/demo" />
                         <Route path="/dog/:id" element={<DogView />} />

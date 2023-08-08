@@ -7,18 +7,19 @@ export const DogView = () => {
         const { store, actions } = useContext(Context);
         const params = useParams();
         const info = store.dog.find((dog, idx) => idx == params.id);
+        console.log(info)
         
         return (
         <div className="container">
+            
             <div className="row mb-4">
                 <div className="col-5 text-center">
-                    <p className="displayedImage border border-warning border-4 border-opacity-50">
-                        {info.image}
-                    </p>
+                    <img className="displayedImage border border-warning border-4 border-opacity-50" src={info ? info.image : ""}/>
+                       
                 </div>
-                <div className="col text-white">
+                <div className="col text-dark">
                     <div className="d-flex justify-content-center">
-                        <h1 className="text-center">{info.name}</h1>
+                        <h1 className="text-center">{info && info.name}</h1>
                         <button
                             className="favoritesCards"
                             onClick={() => {
@@ -34,30 +35,30 @@ export const DogView = () => {
                         </button>
                     </div>
 
-                    <h3>{info.detail}</h3>
+                    <h3>{info && info.detail}</h3>
                     
                 </div>
             </div>
-            <div className="row text-white justify-content-center mt-4 border-top border-secondary pt-4">
+            <div className="row text-dark justify-content-center mt-4 border-top border-secondary pt-4">
                 <div className="col">
                     <h4>Name</h4>
-                    {info.name}
+                    {info && info.name}
                 </div>
                 <div className="col">
                     <h4>Age</h4>
-                    {info.age}
+                    {info && info.age}
                 </div>
                 <div className="col">
                     <h4>Gender</h4>
-                    {info.gender}
+                    {info && info.gender}
                 </div>
                 <div className="col">
                     <h4>Breed</h4>
-                    {info.breed}
+                    {info && info.breed}
                 </div>
                 <div className="col">
                     <h4>Some Info</h4>
-                    {info.info}
+                    {info && info.info}
                 </div>
             </div>
         </div>

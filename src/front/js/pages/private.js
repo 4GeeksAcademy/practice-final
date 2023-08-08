@@ -20,7 +20,7 @@ export const Private = () => {
         }
 
     }, [user, store.user])
-
+        console.log(store.dog[0])
 
     return (
     <div>

@@ -81,6 +81,7 @@ class Dog(db.Model):
             "age" : self.age,
             "breed" : self.breed,
             "info": self.info,
-            "detail": self.detail
+            "detail": self.detail,
+            "image": self.image
         }
     
