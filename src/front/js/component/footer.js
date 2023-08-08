@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 export const Footer = () => (
+	
 	<footer className="footer mt-auto py-3 text-center">
 		
 		<div className="d-flex justify-content-end">
@@ -16,7 +17,9 @@ export const Footer = () => (
 			</Link>
 		</div>
 		<div className="m-3">
-			About Us
+			<Link to= "/aboutUs">
+				About Us
+			</Link>
 		</div>
 		<div className="m-3">
 			<Link to= "/contact">

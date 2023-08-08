@@ -5,7 +5,7 @@ export const FrequentlyAskedQuestions=()=>{
 
 	return (
     
-		<div className="container text-center">
+		<div className="container text-center bg-info">
 			<div className="container p-6 m-7">
             <h2 className="p-4">FAQs</h2>
             <div className="accordion accordion-flush" id="accordionFlushExample">
