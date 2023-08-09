@@ -25,3 +25,15 @@
     text-align: start;
     margin-right: auto;
   }
+
+  .card{
+    max-width: 500px;
+    max-height: 400px;
+    
+  }
+
+  .card-text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

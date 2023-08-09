@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useForm } from "../hooks/useform";
 import "../../styles/home.css";
+import "../../styles/login-signup.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Modal, Button } from 'react-bootstrap';
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
@@ -63,13 +64,16 @@ export const Login = () => {
 
                 <div className="form-outline mb-4">
                     <div className=" input-group">
-                        <div>
-                            <input type={visible ? "text" : "password"} id="form2Example27" className="form-control form-control-lg" name="password" value={password} onChange={handleInputChange} style={error.password ? errorStyle : {}} />
-                            <label className="form-label" >Password {error.password && <label className="text-danger text-opacity-50 fst-italic lh-1">Password is required</label>}</label>
-                        </div>
-                        <span className="input-group-text bg-white"  onClick ={()=> setVisible(!visible)}>
+                        <div className="d-flex">
+                            <div>
+                                <input type={visible ? "text" : "password"} id="form2Example27" className="form-control form-control-lg" name="password" value={password} onChange={handleInputChange} style={error.password ? errorStyle : {}} />
+                                <label className="form-label" >Password {error.password && <label className="text-danger text-opacity-50 fst-italic lh-1">Password is required</label>}</label>
+                            </div>  
+                            <span className="eye input-group-text bg-white"  onClick ={()=> setVisible(!visible)}>
                             {visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>}
-                        </span>
+                            </span>
+                        </div>
+                        
                     </div>
 
                     

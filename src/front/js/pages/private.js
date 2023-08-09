@@ -33,17 +33,22 @@ export const Private = () => {
                 <h1 className="descriptionTitle">See The Lovely Dogs Available</h1>
             </div>
             <div className="d-flex justify-content-center">
-                <div className="d-flex cardDisplay bg-black">
+                <div className="grid-container gap-5 cardDisplay bg-black">
                     {store.dog.map((item, index) => {
                     return (
-                        <span style={{ width: "2000px" }} key={index}>
-                            <Card
-                                item={item}
-                                key={index}
-                                id={index}
-                                favorite={actions.addFavorites}
-                            />
-                        </span>
+                        <div>
+                            <div className="">
+                                
+                                    <Card
+                                        item={item}
+                                        key={index}
+                                        id={index}
+                                        favorite={actions.addFavorites}
+                                    />
+                                
+                            </div>
+                        
+                        </div>
                         );
                     })}
                 </div>
