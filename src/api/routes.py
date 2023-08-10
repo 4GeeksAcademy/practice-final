@@ -1,10 +1,12 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
-from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from flask import Flask, request, jsonify, url_for, Blueprint, redirect
+from api.models import db, User, Dog, Favorite
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+
+
 
 api = Blueprint('api', __name__)
 
@@ -56,3 +58,90 @@ def protected():
     user = User.query.get(current_user_id)
     
     return jsonify({"id": user.id, "email": user.email }), 200
+
+@api.route('/dog', methods=['GET'])
+def handle_get_all_dog():
+    all_dog = Dog.query.all()
+    print(all_dog)
+    result = list(map(lambda item: item.serialize(), all_dog))
+    return jsonify(result), 200
+
+@api.route('/dog/<int:id>', methods=['GET'])
+def handle_get_one_dog(id):
+    dog = Dog.query.get(id)
+    if dog:
+        return jsonify (dog.serialize()), 200
+    else:
+        return jsonify ({"message" : "Dog not found"}), 404
+    
+@api.route('/favorite', methods=['GET'])
+def handle_get_all_favorite():
+    all_favorite = Favorite.query.all()
+    print(all_favorite)
+    result = list(map(lambda item: item.serialize(), all_favorite))
+    return jsonify(result), 200
+
+@api.route('/favorite/<int:id>', methods=['GET'])
+def handle_get_one_favorite(id):
+    favorite = Favorite.query.get(id)
+    if favorite:
+        return jsonify (favorite.serialize()), 200
+    else:
+        return jsonify ({"message" : "Favorite not found"}), 404
+    
+@api.route('/user/favorite/<int:id>', methods=['GET'])
+def handle_user_favorites(id):
+    user = User.query.get(id)
+    if user:
+        favorites = user.favorites
+        return jsonify([favorite.serialize() for favorite in favorites])
+    else:
+        return jsonify({'message': 'User not found'}), 404
+    
+@api.route('/favorite/dog/<int:id>', methods=['POST'])
+def create_favorite_dog(id):
+    data = request.get_json() 
+    user_id = data.get('id') 
+    
+    user = User.query.get(user_id)  
+    if user:
+        dog = Dog.query.get(id) 
+        if dog:
+            new_favorite = Favorite(dog_id=dog.id, user_id=user.id)
+            db.session.add(new_favorite)
+            db.session.commit()
+            
+            return jsonify({'message': 'Favorite dog added successfully.'}), 200
+        else:
+            return jsonify({'message': 'Dog not found'}), 404
+    else:
+        return jsonify({'message': 'User not found'}), 404
+    
+@api.route('/favorite/dog/<int:id>', methods=['DELETE'])
+def delete_favorite_dog(id):
+    data = request.get_json() 
+    user_id = data.get('id')  
+    
+    user = User.query.get(user_id)  
+    if user:
+        favorite = Favorite.query.filter_by(dog_id=id, user_id=user.id).first()  
+        if favorite:
+            db.session.delete(favorite)  
+            db.session.commit()
+            
+            return jsonify({'message': 'Favorite deleted successfully.'}), 200
+        else:
+            return jsonify({'message': 'Favorite not found'}), 404
+    else:
+        return jsonify({'message': 'User not found'}), 404
+    
+
+
+
+if __name__ == '__main__':
+    app.run(port=4242)
+# this only runs if `$ python src/app.py` is executed
+if __name__ == '__main__':
+    PORT = int(os.environ.get('PORT', 3000))
+    api.run(host='0.0.0.0', port=PORT, debug=False)
+

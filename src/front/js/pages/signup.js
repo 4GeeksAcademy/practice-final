@@ -1,9 +1,10 @@
 import React, {  useState } from "react";
 import { useForm } from "../hooks/useform";
 import { Link, useNavigate } from "react-router-dom";
+import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 
 
-export const SingUp = () => {
+export const SignUp = () => {
     const navigate = useNavigate();
 
 
@@ -14,6 +15,7 @@ export const SingUp = () => {
     })
 
     const { email, password, password2 } = inputValues  
+    const [ visible, setVisible] = useState(false);
     
     const [error, setError] = useState({
         email: false,
@@ -42,7 +44,7 @@ const createUser = async (event) => {
         password2 !== ''
     ){
        try {
-         const response = await fetch('https://sanghmitra2023-jubilant-bassoon-6j9744q9x57f5r6g-3001.preview.app.github.dev/api/signup',{
+         const response = await fetch('https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.app.github.dev/api/signup',{
             method: 'POST',
             body: JSON.stringify({
                 email: email,
@@ -69,9 +71,10 @@ const createUser = async (event) => {
 	return (
 
 
-		<div className="w-50 p-3">
+		<div className="container text-center bg-info w-50 p-4">
 
 			<form>
+            <h3 className="fw-normal mb-3 pb-3" style={{ letterSpacing: "1px" }}>Please Enter the Info</h3>
                 <div className="d-flex flex-row align-items-center mb-4">
                     <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div className="form-outline flex-fill mb-0">
@@ -87,6 +90,9 @@ const createUser = async (event) => {
                         <input style={error.password ? errorStyle : {}} type="password" name="password" id="form3Example1h" className="form-control" value={password} onChange={handleInputChange} />
                         {error.password && <div className="badge bg-danger text-wrap">Password is required</div>}
                         <label className="form-label" htmlFor="form3Example4c">Password</label>
+                        <div className="p-2" onClick ={()=> setVisible(!visible)}>
+                            {visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>}
+                        </div>
                     </div>
                 </div>
                 <div className="d-flex flex-row align-items-center mb-4">
@@ -94,10 +100,15 @@ const createUser = async (event) => {
                     <div className="form-outline flex-fill mb-0">
                         <input type="password" name="password2" id="form3Example4cd" className="form-control" value={password2} onChange={handleInputChange} />
                         <label className="form-label" htmlFor="form3Example4cd">Repeat your password</label>
+                        <div className="p-2" onClick ={()=> setVisible(!visible)}>
+                            {visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>}
+                        </div>
                     </div>
+                    
                 </div>
-                <div className="d-flex flex-row align-items-center mb-4">
-				<button type="submit" className="btn btn-primary" onClick={createUser}>Submit</button>
+                <div className="pt-1 mb-4">
+				<button type="submit" className="btn btn-primary btn-lg btn-block" onClick={createUser}>Submit</button>
+                
                 </div>
 			</form>
 

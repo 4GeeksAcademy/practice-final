@@ -5,21 +5,21 @@ export const Forgot=()=>{
 
 	return (
     
-		<div className="container text-center">
+		<div className="container text-center bg-info">
 			<h3>Forgot Your Password?</h3><br></br>
             <h6>Please enter your registered e-mail here. We will send you a link to reset the password.</h6><br></br>
 			<form>
-				<div class="mb-3">
+				<div class="w-100 p-3">
 					<label for="exampleInputEmail1" class="form-label">Email address</label>
 					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-					<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+					<div id="emailHelp" class="form-text">We'll never share your email with anyone else</div>
 				</div>
 			</form>
 				
 			<hr className="my-4" />
 
 			<Link to="/">
-				<span className="btn btn-primary btn-lg" href="#" role="button">
+				<span className="btn btn-primary btn-lg btn-block m-3" href="#" role="button">
 					Back home
 				</span>
 			</Link>

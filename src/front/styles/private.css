@@ -1,0 +1,28 @@
+.cardsTitleHolder {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .descriptionTitle {
+    display: inline-block;
+    margin: 3rem;
+    color: orange;
+    border: 2rem;
+  }
+  
+  .cardDisplay {
+    margin-bottom: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 1500px;
+    border-radius: 20px;
+  }
+  
+  .cardDisplay > * {
+    margin-right: 20px;
+  }
+  
+  .grid-container{
+    display : grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
