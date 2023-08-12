@@ -81,9 +81,10 @@ export const Home = () => {
         </div><br></br><br></br>
 
         <div>
-			<div className="row gap-4 m-5">
-				{dataTwo.map(cardTwo =><CardTwo
+			<div className="mitra gap-4 mt-5">
+				{dataTwo.map((cardTwo,index) =><CardTwo
 					titleTwo={cardTwo.titleTwo}
+                    idx={parseInt(index)+1}
 					imageUrlTwo={cardTwo.imageUrlTwo}
 					descriptionTwo={cardTwo.descriptionTwo}
 					detailOne={cardTwo.detailOne}
