@@ -28,12 +28,12 @@ export const Private = () => {
             {user !== null ? `hello ${user.email}` : <></> }
 
         </>
-        <div className="mt-5 bg bg-dark">
+        <div className="mt-4 bg bg-info">
             <div className="cardsTitleHolder">
                 <h1 className="descriptionTitle">See The Lovely Dogs Available</h1>
             </div>
             <div className="d-flex justify-content-center">
-                <div className="grid-container gap-5 cardDisplay bg-black">
+                <div className="grid-container gap-5 cardDisplay ">
                     {store.dog.map((item, index) => {
                     return (
                         <div>

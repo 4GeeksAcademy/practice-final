@@ -14,8 +14,6 @@ const Card = (props) => {
           style={{ width: "300px",  borderRadius: "5px", objectFit: "cover" }}/>
       </div>
      
-      
-        
       <div className="card-body">
         <h5 className="card-title">Name: {props.item.name}</h5>
         <p className="card-text">Age: {props.item.age}</p>
@@ -28,6 +26,7 @@ const Card = (props) => {
               Find Out More
             </button>
           </Link>
+          <button className="btn btn-outline-primary m-2">Book a Session</button>
           <button
             className="favoritesCards"
             onClick={() => {

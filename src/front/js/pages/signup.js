@@ -2,6 +2,7 @@ import React, {  useState } from "react";
 import { useForm } from "../hooks/useform";
 import { Link, useNavigate } from "react-router-dom";
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
+import Button from "../component/button.jsx";
 
 
 export const SignUp = () => {
@@ -9,15 +10,17 @@ export const SignUp = () => {
 
 
     const [inputValues, handleInputChange] = useForm({
+        name:'',
         email:'',
         password: '',
         password2: '',
     })
 
-    const { email, password, password2 } = inputValues  
+    const { name, email, password, password2 } = inputValues  
     const [ visible, setVisible] = useState(false);
     
     const [error, setError] = useState({
+        name: false,
         email: false,
         password: false,
         password2: false
@@ -30,6 +33,7 @@ export const SignUp = () => {
 const createUser = async (event) => {
     event.preventDefault();
     setError({
+        name: name === "",
         email: email === "",
         password: password === "",
         password2: password2 === "" || password !== password2
@@ -39,6 +43,7 @@ const createUser = async (event) => {
         return;
     }
     if (
+        name !== '' &&
         email !== '' &&
         password !== '' &&
         password2 !== ''
@@ -47,6 +52,7 @@ const createUser = async (event) => {
          const response = await fetch('https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.app.github.dev/api/signup',{
             method: 'POST',
             body: JSON.stringify({
+                name: name,
                 email: email,
                 password: password
             }),
@@ -75,6 +81,15 @@ const createUser = async (event) => {
 
 			<form>
             <h3 className="fw-normal mb-3 pb-3" style={{ letterSpacing: "1px" }}>Please Enter the Info</h3>
+                <div className="d-flex flex-row align-items-center mb-4">
+                    <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div className="form-outline flex-fill mb-0">
+                        <input style={error.name ? errorStyle : {}} type="text" name="name" id="form3Example1f" className="form-control" value={name} onChange={handleInputChange} />
+                        {error.name && <div className="badge bg-danger text-wrap">Name is required</div>}
+                        <label className="form-label" htmlFor="form3Example3c">Your Name</label>
+                    </div>
+                </div>
+
                 <div className="d-flex flex-row align-items-center mb-4">
                     <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div className="form-outline flex-fill mb-0">
@@ -107,7 +122,8 @@ const createUser = async (event) => {
                     
                 </div>
                 <div className="pt-1 mb-4">
-				<button type="submit" className="btn btn-primary btn-lg btn-block" onClick={createUser}>Submit</button>
+                <Button text={"Submit"} backgroundColor={"blue"} color={"White"} type="submit" funct={createUser}/>
+				
                 
                 </div>
 			</form>

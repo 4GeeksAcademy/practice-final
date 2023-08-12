@@ -21,13 +21,14 @@ def handle_hello():
 
 @api.route('/signup', methods=['POST'])
 def create_user():
+    name = request.json.get("name", None)
     email = request.json.get("email", None)
     password = request.json.get("password", None)
 
     if not email or not password:
         return jsonify({ "msg": "No password or email present." }), 400
     
-    new_user = User(email=email, password=password)
+    new_user = User(name=name, email=email, password=password)
     db.session.add(new_user)
     db.session.commit()
 
