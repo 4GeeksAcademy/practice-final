@@ -8,25 +8,25 @@ const Card = (props) => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="card">
+
+    <div className="box">
       <div className="d-flex justify-content-center">
-        <img className="card-img-top" alt="dog" src={props.item.image}
-          style={{ width: "300px",  borderRadius: "5px", objectFit: "cover" }}/>
+          <img className="displayedImage border border-warning border-4 border-opacity-50" src={props.item.image}/>
       </div>
      
       <div className="card-body">
-        <h5 className="card-title">Name: {props.item.name}</h5>
-        <p className="card-text">Age: {props.item.age}</p>
-        <p className="card-text">Breed: {props.item.breed}</p>
-        <p className="card-text">Gender: {props.item.gender}</p>
-        <p className="">Quick glance: {props.item.info}</p>
+        <h4 className="card-title text-primary text-center">{props.item.name}</h4>
+        <p className="card-text ms-5"><b>Age:</b> {props.item.age}</p>
+        <p className="card-text ms-5"><b>Breed:</b> {props.item.breed}</p>
+        <p className="card-text ms-5"><b>Gender:</b> {props.item.gender}</p>
+        
         <div className="buttonContainer">
           <Link to={"/dog/" + props.id}>
             <button href="#" className="btn btn-outline-primary">
               Find Out More
             </button>
           </Link>
-          <button className="btn btn-outline-primary m-2">Book a Session</button>
+          <button className="btn btn-outline-primary ms-2">Book a Session</button>
           <button
             className="favoritesCards"
             onClick={() => {

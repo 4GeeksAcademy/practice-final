@@ -1,7 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import iconImageUrl from "../../img/icon.png";
-import Card from "../component/card.jsx";
 import ContactCard from "../component/contactCard.jsx";
 import "../../styles/contact.css";
 import exe1ImageUrl from "../../img/exe1.jpg";
@@ -9,9 +6,9 @@ import exe2ImageUrl from "../../img/exe2.jpg";
 import exe3ImageUrl from "../../img/exe3.jpg";
 
 
-    const contacts = [{title:"Jane Doe", imgURL: "{exe1ImageUrl}", role: "CEO and Founder", info: "Some text that describes me lorem ipsum ipsum lorem ipsum lorem ipsum", email: "jane@test.com", phone: "123456789"},
-    {title:"Mike Ross", imgURL: "", role: "Designer and Developer", info: "Some text that describes me lorem ipsum ipsum lorem ipsum lorem ipsum", email: "ross@test.com", phone: "123456789"},
-    {title:"Joe Doe", imgURL: "", role: "Designer and Developer", info: "Some text that describes me lorem ipsum ipsum lorem ipsum lorem ipsum", email: "joe@test.com", phone: "123456789"}]
+    const contacts = [{title:"Jane Doe", imageUrlFour: exe2ImageUrl, role: "CEO and Founder", info: "Some text that describes me lorem ipsum ipsum lorem ipsum lorem ipsum", email: "jane@test.com", phone: "123456789"},
+    {title:"Mike Ross", imageUrlFour: exe1ImageUrl, role: "Designer and Developer", info: "Some text that describes me lorem ipsum ipsum lorem ipsum lorem ipsum", email: "ross@test.com", phone: "123456789"},
+    {title:"Joe Doe", imageUrlFour: exe3ImageUrl, role: "Designer and Developer", info: "Some text that describes me lorem ipsum ipsum lorem ipsum lorem ipsum", email: "joe@test.com", phone: "123456789"}]
 
     
     
@@ -44,7 +41,7 @@ export const AboutUs=()=>{
                     <div className="row gap-4 m-4">
                         {contacts.map(contactCard =><ContactCard
                             title={contactCard.title}
-                            imgURL={contactCard.imgURL}
+                            imageUrlFour={contactCard.imageUrlFour}
                             role={contactCard.role}
                             info={contactCard.info}
                             email={contactCard.email}

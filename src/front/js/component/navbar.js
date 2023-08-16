@@ -20,12 +20,11 @@ export const Navbar = () => {
 					<span className="navbar-brand mb-0 h1"><img src={iconImageUrl} style={{ width: 70, height: 80 }}/>Hello Woof</span>
 				</Link>
 				
-					<div>
+					<div className="d-flex">
 						<Link to="/signup" >
 							<h5>Signup</h5>
 						</Link>
-					</div>
-					<div>
+						&nbsp;&nbsp;&nbsp;
 						<Link to="/login" >
 							<h5>Login</h5>
 						</Link>

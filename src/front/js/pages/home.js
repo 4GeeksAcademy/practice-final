@@ -5,6 +5,7 @@ import "../../styles/home.css";
 import dogImageUrl from "../../img/dog.jpg";
 import dog1ImageUrl from "../../img/dog1.jpg";
 import dog3ImageUrl from "../../img/dog3.jpg";
+import pupImageUrl from "../../img/pup.jpg";
 import cuddleImageUrl from "../../img/cuddle.jpg";
 import kidImageUrl from "../../img/kid.jpg";
 import oldImageUrl from "../../img/old.jpg";
@@ -14,6 +15,7 @@ import Card from "../component/card.jsx";
 
 
 const dataTwo = [{titleTwo:"Who is Hello Woof for?",
+    imageUrlTwo: dog1ImageUrl,
     descriptionTwo:"An ardent dog-lover, you have always wanted one but...", 
     detailOne: "💔  Haven't got enough space at home and don't want to see your dog caged up in a tiny apartment!", 
     detailTwo:"💔  Haven't got enough time everyday to walk or play with the dog and it affects you that your dog misses exercise!",
@@ -22,6 +24,7 @@ const dataTwo = [{titleTwo:"Who is Hello Woof for?",
     detailFive: "💔  Your present economic condition doesn't allow you to have a dog for it means new expenditures!"
     },
     {titleTwo: "How can Hello Woof help you?",
+    imageUrlTwo: pupImageUrl,
     descriptionTwo: "There are many dogs in the dog shelters that are waiting to get adopted or have lost all hopes of ever getting adopted. They also need and deserve love, affection and human attention.",
     detailOne:"💖  We try to bring people who want a dog but cannot have one at home and such dogs together",
     detailTwo: "💖  It's very simple. You select a dog or as many dogs as you like to play with and spend time with. We call it 'WE-Time'",
@@ -81,7 +84,7 @@ export const Home = () => {
         </div><br></br><br></br>
 
         <div>
-			<div className="mitra gap-4 mt-5">
+			<div className="gap-4 mt-5">
 				{dataTwo.map((cardTwo,index) =><CardTwo
 					titleTwo={cardTwo.titleTwo}
                     idx={parseInt(index)+1}
@@ -104,6 +107,10 @@ export const Home = () => {
                         
                     />)}
 		  	    </div>
+            </div>
+        
+            <div className="text-container">
+                <p className="typed">This is a paragraph of typed text.</p>
             </div>
 			  
 		</div>		

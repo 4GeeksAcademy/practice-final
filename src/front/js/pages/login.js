@@ -57,25 +57,19 @@ export const Login = () => {
 		<div className="container text-center bg-info w-50 p-3">
         <form>                               
             <h3 className="fw-normal mb-3 pb-3" style={{ letterSpacing: "1px" }}>Sign into your account</h3>
-                <div className="form-outline mb-4">
-                    <input type="email" className="form-control form-control-lg" name="email" value={email} onChange={handleInputChange} style={error.email ? errorStyle : {}} />
-                    <label className="form-label" >Email address{error.email && <label className="text-danger text-opacity-50 fst-italic lh-1">Email is required</label>}</label>
+                <div className="form-outline mb-4 h6">
+                    <input type="email" className="longer-one" name="email" value={email} onChange={handleInputChange} style={error.email ? errorStyle : {}} />
+                    <label className="form-label" >Email address{error.email && <label className="text-white text-opacity-100 fst-italic lh-1">Email is required</label>}</label>
                 </div>
 
-                <div className="form-outline mb-4">
+                <div className="form-outline  mb-4 h6">
                     <div className=" input-group">
                         <div className="d-flex">
-                            <div>
-                                <input type={visible ? "text" : "password"} className="form-control form-control-lg" name="password" value={password} onChange={handleInputChange} style={error.password ? errorStyle : {}} />
-                                <label className="form-label" >Password {error.password && <label className="text-danger text-opacity-50 fst-italic lh-1">Password is required</label>}</label>
+                            <div className="flex-grow-1">
+                                <input type={visible ? "text" : "password"} className="long-one" name="password" value={password} onChange={handleInputChange} style={error.password ? errorStyle : {}} />
+                                <label className="form-label" >Password {error.password && <label className="text-white text-opacity-100 fst-italic lh-1">Password is required</label>}</label>
                             </div>  
                             <span className="eye input-group-text bg-white" id="basic-addon2" onClick ={()=> setVisible(!visible)}>
-                            {visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>}
-                            </span>
-                        </div>
-                        <div className="input-group mb-3">
-                            <input type={visible ? "text" : "password"} className="form-control" aria-describedby="basic-addon2"/>
-                            <span className="input-group-text" id="basic-addon2" onClick ={()=> setVisible(!visible)}>
                             {visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>}
                             </span>
                         </div>
@@ -84,7 +78,7 @@ export const Login = () => {
 
                     
                     
-                    <div className="mb-3 form-check">
+                    <div className="mb-3 form-label">
                         <Link to="/forgot" >
                             <p>Forgot Password</p>
                         </Link>
@@ -97,7 +91,7 @@ export const Login = () => {
 
                 
                 
-                <div className="mb-3 form-check text-dark">
+                <div className="mb-3 form-label text-dark">
                     <p>New User?</p>
                     <Link to="/signup" >
                         <h5>CREATE AN ACCOUNT</h5>

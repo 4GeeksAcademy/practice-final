@@ -1,3 +1,26 @@
 .eye{
-    height: 60%;
+    height: 44px;
 }
+
+.long-one{
+    height: 45px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding-left: 34px;
+    resize: vertical;
+
+}
+
+.longer-one{
+    height: 45px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding-left: 34px;
+    resize: vertical;
+
+}
+

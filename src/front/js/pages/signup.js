@@ -80,45 +80,55 @@ const createUser = async (event) => {
 		<div className="container text-center bg-info w-50 p-4">
 
 			<form>
-            <h3 className="fw-normal mb-3 pb-3" style={{ letterSpacing: "1px" }}>Please Enter the Info</h3>
+                <h3 className="fw-normal mb-3 pb-3" style={{ letterSpacing: "1px" }}>Please Enter the Info</h3>
                 <div className="d-flex flex-row align-items-center mb-4">
-                    <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div className="form-outline flex-fill mb-0">
-                        <input style={error.name ? errorStyle : {}} type="text" name="name" id="form3Example1f" className="form-control" value={name} onChange={handleInputChange} />
+                    <i className="fas fa-user me-3 fa-fw"></i>
+                    <div className="form-outline flex-fill mb-0 h6">
+                        <input style={error.name ? errorStyle : {}} type="text" name="name" className="longer-one" value={name} onChange={handleInputChange} />
                         {error.name && <div className="badge bg-danger text-wrap">Name is required</div>}
                         <label className="form-label" htmlFor="form3Example3c">Your Name</label>
                     </div>
                 </div>
 
                 <div className="d-flex flex-row align-items-center mb-4">
-                    <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div className="form-outline flex-fill mb-0">
-                        <input style={error.email ? errorStyle : {}} type="email" name="email" id="form3Example1f" className="form-control" value={email} onChange={handleInputChange} />
+                    <i className="fas fa-envelope me-3 fa-fw"></i>
+                    <div className="form-outline flex-fill mb-0 h6">
+                        <input style={error.email ? errorStyle : {}} type="email" name="email" className="longer-one" value={email} onChange={handleInputChange} />
                         {error.email && <div className="badge bg-danger text-wrap">Email is required</div>}
                         <label className="form-label" htmlFor="form3Example3c">Your Email</label>
                     </div>
                 </div>
 
                 <div className="d-flex flex-row align-items-center mb-4">
-                    <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div className="form-outline flex-fill mb-0">
-                        <input style={error.password ? errorStyle : {}} type="password" name="password" id="form3Example1h" className="form-control" value={password} onChange={handleInputChange} />
-                        {error.password && <div className="badge bg-danger text-wrap">Password is required</div>}
-                        <label className="form-label" htmlFor="form3Example4c">Password</label>
-                        <div className="p-2" onClick ={()=> setVisible(!visible)}>
-                            {visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>}
+                    <i className="fas fa-lock me-3 fa-fw"></i>
+                        <div className="form-outline flex-fill mb-0 h6">
+                                <div className="d-flex">
+                                    <div className="flex-grow-1">
+                                        <input style={error.password ? errorStyle : {}} type={visible ? "text" : "password"} name="password"  className="long-one" value={password} onChange={handleInputChange} />
+                                        {error.password && <div className="badge bg-danger text-wrap">Password is required</div>}
+                                        <label className="form-label" htmlFor="form3Example4c">Password</label>
+                                    </div>  
+                                        <span className="eye input-group-text bg-white" id="basic-addon2" onClick ={()=> setVisible(!visible)}>
+                                             {visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>}
+                                        </span>
+                                </div>
                         </div>
-                    </div>
                 </div>
                 <div className="d-flex flex-row align-items-center mb-4">
-                    <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                    <div className="form-outline flex-fill mb-0">
-                        <input type="password" name="password2" id="form3Example4cd" className="form-control" value={password2} onChange={handleInputChange} />
-                        <label className="form-label" htmlFor="form3Example4cd">Repeat your password</label>
-                        <div className="p-2" onClick ={()=> setVisible(!visible)}>
-                            {visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>}
-                        </div>
-                    </div>
+                    <i className="fas fa-key me-3 fa-fw"></i>
+                            <div className="form-outline flex-fill mb-0 h6">
+                                <div className="d-flex">
+                                    <div className="flex-grow-1">
+                                        <input type={visible ? "text" : "password"} className="long-one" name="password2" value={password2} onChange={handleInputChange} style={error.password2 ? errorStyle : {}} />
+                                        {error.password && <div className="badge bg-danger text-wrap">Repeat your Password</div>}
+                                        <label className="form-label" >Repeat Password </label>
+                                    </div>  
+                                    <span className="eye input-group-text bg-white" id="basic-addon2" onClick ={()=> setVisible(!visible)}>
+                                        {visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>}
+                                    </span>
+                                </div>
+                            
+                            </div>
                     
                 </div>
                 <div className="pt-1 mb-4">

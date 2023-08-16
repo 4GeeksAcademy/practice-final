@@ -1,7 +1,5 @@
 import React from "react";
 import Button from "./button.jsx";
-import dog1ImageUrl from "../../img/dog1.jpg";
-import dog3ImageUrl from "../../img/dog3.jpg";
 import { Link } from "react-router-dom";
 
 const CardTwo = (props) => {
@@ -10,15 +8,14 @@ const CardTwo = (props) => {
           	
 			{props.idx%2==0 ? (
 				<div className="row g-0 p-4">
-					<div className="col-4 mt-5">
-						<img src={dog3ImageUrl} className="img-fluid rounded-start" width="300"  height="600" alt="..."/><br></br><br></br>
-						<img src={dog1ImageUrl} className="img-fluid rounded-start" width="300"  height="600" alt="..."/>
+					<div className="col-sm-4 mt-5">
+						<img src={props.imageUrlTwo} className="img-fluid rounded-start" width="600"  height="1500" alt="..."/>
 					</div>
-					<div className="col-8">
+					<div className="col-sm-8">
 						<div className="text-start ms-5">
 							<h1 className="card-title text-center mt-3 mb-1">{props.titleTwo}</h1><br></br>
 								
-								<div className="card-body text-info h3">
+								<div className="card-body text-info h4">
 									{props.descriptionTwo}
 								</div>  
 								<div className="card-text h6">
@@ -37,8 +34,8 @@ const CardTwo = (props) => {
 									{props.detailFive}
 								</div>
 							
-						</div>
-					<h5 className="text-primary">To find out more
+						</div><br></br>
+					<h5 className="text-primary">To find out more<br></br>
 						<Link to="/login" ><Button/></Link>
 					</h5>
             	</div>
@@ -46,7 +43,7 @@ const CardTwo = (props) => {
 				):(
 					<div className="row g-0 p-4">
 					
-					<div className="col-8">
+					<div className="col-sm-8">
 						<div className="text-start ms-5">
 							<h1 className="card-title text-center mt-3 mb-1">{props.titleTwo}</h1><br></br>
 								
@@ -69,14 +66,13 @@ const CardTwo = (props) => {
 									{props.detailFive}
 								</div>
 							
-						</div>
+						</div><br></br>
 					<h5 className="text-primary">To find out more
-						<Link to="/login" ><Button/></Link>
+						<Link to="/login" ><br></br><Button/></Link>
 					</h5>
             	</div>
-				<div className="col-4 mt-5">
-						<img src={dog3ImageUrl} className="img-fluid rounded-start" width="300"  height="600" alt="..."/><br></br><br></br>
-						<img src={dog1ImageUrl} className="img-fluid rounded-start" width="300"  height="600" alt="..."/>
+				<div className="col-sm-4 mt-5">
+						<img src={props.imageUrlTwo} className="img-fluid rounded-start" width="400"  height="900" alt="..."/>
 					</div>
 				</div>
 				)}
