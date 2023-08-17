@@ -3,6 +3,7 @@ import { useForm } from "../hooks/useform";
 import { Link, useNavigate } from "react-router-dom";
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 import Button from "../component/button.jsx";
+import "../../styles/login-signup.css";
 
 
 export const SignUp = () => {

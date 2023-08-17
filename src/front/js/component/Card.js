@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/card.css";
-import { useContext } from "react";
 import { Context } from "../store/appContext";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'
+
 
 const Card = (props) => {
   const { store, actions } = useContext(Context);
+  const [date, setDate] = useState(new Date());
 
   return (
 
@@ -27,9 +30,22 @@ const Card = (props) => {
             </button>
           </Link>
           
-          <button className="btn btn-outline-primary ms-2">
+          {/*<button className="btn btn-outline-primary ms-2">
             <a href="https://calendar.app.google/akU8Mg1JroaeuZou5">Book a Session</a>
-          </button>
+  </button>*/}
+          <div className="">
+              <DatePicker
+                timeIntervals={60}
+                showTimeSelect
+                minTime={new Date(0, 0, 0, 12, 0)}
+                maxTime={new Date(0, 0, 0, 21, 0)}
+                selected={date}
+                onChange={date => setDate(date)}
+                className="btn btn-outline-primary ms-2"
+                filterDate={date => date.getDay() !=1}
+              />
+          </div>
+
           <button
             className="favoritesCards"
             onClick={() => {
@@ -46,7 +62,7 @@ const Card = (props) => {
         </div>
       </div>
       <div className="text-center">
-        <button className="btn btn-outline-primary ms-2">
+        <button className="btn btn-outline-primary">
               <a href="https://donate.stripe.com/test_4gwdTjfu0gbF9GgaEE">Pay Now</a>
         </button>
       </div>
