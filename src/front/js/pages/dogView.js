@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 import "../../styles/about.css";
 
 export const DogView = () => {
@@ -57,9 +58,14 @@ export const DogView = () => {
                     {info && info.breed}
                 </div>
                 <div className="col">
-                    <h4>Some Info</h4>
+                    <h4>At a quick glance</h4>
                     {info && info.info}
                 </div>
+            </div><br></br><hr></hr>
+            <div className="text-center">
+                <Link to= "/private">
+                <button className="btn btn-lg btn-primary ms-2 h3">Back</button>
+				</Link>
             </div>
         </div>
         );

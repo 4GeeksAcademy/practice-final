@@ -26,7 +26,10 @@ const Card = (props) => {
               Find Out More
             </button>
           </Link>
-          <button className="btn btn-outline-primary ms-2">Book a Session</button>
+          
+          <button className="btn btn-outline-primary ms-2">
+            <a href="https://calendar.app.google/akU8Mg1JroaeuZou5">Book a Session</a>
+          </button>
           <button
             className="favoritesCards"
             onClick={() => {
@@ -41,6 +44,11 @@ const Card = (props) => {
             </div>
           </button>
         </div>
+      </div>
+      <div className="text-center">
+        <button className="btn btn-outline-primary ms-2">
+              <a href="https://donate.stripe.com/test_4gwdTjfu0gbF9GgaEE">Pay Now</a>
+        </button>
       </div>
     </div>
   );

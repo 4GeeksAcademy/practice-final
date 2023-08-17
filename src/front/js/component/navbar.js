@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import iconImageUrl from "../../img/icon.png";
 
-export const Navbar = () => {
+export const Navbar = (props) => {
 
 	const { store, actions } = useContext(Context);
 	const location = useLocation();
