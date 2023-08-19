@@ -25,15 +25,19 @@ const Card = (props) => {
         
         <div className="buttonContainer">
           <Link to={"/dog/" + props.id}>
-            <button href="#" className="btn btn-outline-primary">
+            <button href="#" className="btn btn-outline-primary ms-3">
               Find Out More
             </button>
           </Link>
+
+          <Link to="/booking">
+						<button className="btn btn-outline-primary ms-2">We-Time Session</button>
+					</Link>
           
           {/*<button className="btn btn-outline-primary ms-2">
             <a href="https://calendar.app.google/akU8Mg1JroaeuZou5">Book a Session</a>
-  </button>*/}
-          <div className="">
+  </button>
+          <div>
               <DatePicker
                 timeIntervals={60}
                 showTimeSelect
@@ -44,7 +48,7 @@ const Card = (props) => {
                 className="btn btn-outline-primary ms-2"
                 filterDate={date => date.getDay() !=1}
               />
-          </div>
+          </div> */}
 
           <button
             className="favoritesCards"
@@ -61,11 +65,13 @@ const Card = (props) => {
           </button>
         </div>
       </div>
-      <div className="text-center">
+      
+      {/*<div className="text-center">
         <button className="btn btn-outline-primary">
               <a href="https://donate.stripe.com/test_4gwdTjfu0gbF9GgaEE">Pay Now</a>
         </button>
-      </div>
+      </div>*/}
+
     </div>
   );
 };

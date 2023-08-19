@@ -18,6 +18,10 @@ import { Contact } from "./pages/contact";
 import { AboutUs } from "./pages/aboutUs";
 import { FrequentlyAskedQuestions } from "./pages/frequentlyAskedQuestions";
 import { Forgot } from "./pages/forgot";
+import { Booking } from "./pages/booking";
+import { Success } from "./pages/success";
+import { Canceled } from "./pages/canceled";
+import { Report } from "./pages/report";
 
 //create your first component
 const Layout = () => {
@@ -42,6 +46,10 @@ const Layout = () => {
                         <Route element={<FrequentlyAskedQuestions />} path="/frequentlyAskedQuestions" />
                         <Route element={<Forgot />} path="/forgot" />
                         <Route element={<Demo />} path="/demo" />
+                        <Route element={<Booking />} path="/booking" />
+                        <Route element={<Success />} path="/success" />
+                        <Route element={<Canceled />} path="/canceled" />
+                        <Route element={<Report />} path="/report" />
                         <Route path="/dog/:id" element={<DogView />} />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />

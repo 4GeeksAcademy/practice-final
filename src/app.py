@@ -11,7 +11,7 @@ from flask_jwt_extended import JWTManager
 from api.utils import APIException, generate_sitemap, get_hash
 from api.admin import setup_admin
 from api.commands import setup_commands
-from api.models import db, User, Favorite, Dog
+from api.models import db, User, Favorite, Dog, Report, Appointment
 
 
 #from models import Person

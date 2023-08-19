@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint, redirect
-from api.models import db, User, Dog, Favorite
+from api.models import db, User, Dog, Favorite, Report, Appointment
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 
@@ -136,11 +136,66 @@ def delete_favorite_dog(id):
     else:
         return jsonify({'message': 'User not found'}), 404
     
+@api.route('/report', methods=['GET'])
+def handle_get_all_report():
+    all_report = Report.query.all()
+    print(all_report)
+    result = list(map(lambda item: item.serialize(), all_report))
+    return jsonify(result), 200
+
+@api.route('/report/<int:id>', methods=['GET'])
+def handle_get_one_report(id):
+    report = Report.query.get(id)
+    if Report:
+        return jsonify (report.serialize()), 200
+    else:
+        return jsonify ({"message" : "Report not found"}), 404
+    
+@api.route('/booking', methods=['POST'])
+def create_appointment():
+    user_id = request.json.get("user_id", None)
+    dog_id = request.json.get("dog_id", None)
+    time = request.json.get("time", None)
+    user_comment = request.json.get("user_comment", None)
+
+    if not user_id or not dog_id or not time or not user_comment:
+        return jsonify({ "msg": "No dog_id or user_id or time or user_comment present." }), 400
+    
+    new_appointment = Appointment(user_id=user_id, dog_id=int(dog_id), time= time, user_comment=user_comment)
+    db.session.add(new_appointment)
+    db.session.commit()
+
+    response_body = {
+        "msg": "Appointment created"
+    }
+    return jsonify(response_body), 201
+
+@api.route('/appointments', methods=['GET'])
+def handle_appointments():
+
+    appointments = Appointment.query.all()
+    all_appointments = list(map(lambda x: x.serialize(), appointments))
+
+    return jsonify(all_appointments), 200
+
+@api.route('/appointments/<int:appointment_id>', methods=['DELETE'])
+def delete_appointment(appointment_id):
+    
+    appointment1 = Appointment.query.get(appointment_id)
+    if appointment1 is None:
+        raise APIException('appointment not found', status_code=404)
+    db.session.delete(appointment1)
+    db.session.commit()
+    appointments = Appointment.query.all()
+    all_appointments = list(map(lambda x: x.serialize(), appointments))
+    
+    return jsonify(all_appointments), 200
+
 
 
 
 if __name__ == '__main__':
-    app.run(port=4242)
+    api.run(port=4242)
 # this only runs if `$ python src/app.py` is executed
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3000))

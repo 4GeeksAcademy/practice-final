@@ -12,6 +12,7 @@ import oldImageUrl from "../../img/old.jpg";
 import iconImageUrl from "../../img/icon.png";
 import CardTwo from "../component/cardTwo.jsx";
 import Card from "../component/card.jsx";
+import ReviewCard from "../component/reviewCard.jsx";
 
 
 const dataTwo = [{titleTwo:"Who is Hello Woof for?",
@@ -38,6 +39,13 @@ const dataTwo = [{titleTwo:"Who is Hello Woof for?",
     {title:"Book the WE-Time", description:"Based on your convenience you can book a day and a time slot to spend time playing with your dog friend."},
     {title:"Make Payment Online", description:"You pay a token fee, which we call Donation. This amount goes for the welfare of the dogs in the dog shelter."}]
     
+    const dataThree =[{header:"Alexis", titleThree:"A wonderful experience", descriptionThree:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.", footer:"20/1/2023"},
+    {header:"Johnson", titleThree:"Easy to use app", descriptionThree:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.", footer:"5/2/2023"},
+    {header:"Raul", titleThree:"Worth recommending app", descriptionThree:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.", footer:"28/3/2023"},
+    {header:"Sara", titleThree:"Excellent and convenient", descriptionThree:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.", footer:"7/5/2023"},
+    {header:"Sonya", titleThree:"Better than any such app around", descriptionThree:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.", footer:"30/7/2023"},
+    ]
+
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -108,7 +116,23 @@ export const Home = () => {
                     />)}
 		  	    </div>
             </div>
-        
+            
+            <div className="container bg-light border-light mt-5 overflow-auto  p-4">
+					<div className="row">
+						<h4 className="display-5 text-center">What Our Users Have To Say</h4><br></br>
+						<h4 className="text-success text-center">We have more than 1000 5-Star reviews!</h4><br></br>
+							<div className="row gap-4 m-4">
+							{dataThree.map(reviewCard =><ReviewCard
+								header={reviewCard.header}
+								titleThree={reviewCard.titleThree}
+								descriptionThree={reviewCard.descriptionThree}
+								footer={reviewCard.footer}
+								
+								/>)}
+							</div>
+					</div>
+				</div>
+                
             <div className="text-container">
                 <p className="typed">This is a paragraph of typed text.</p>
             </div>

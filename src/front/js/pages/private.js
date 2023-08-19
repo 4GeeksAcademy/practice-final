@@ -24,16 +24,25 @@ export const Private = () => {
 
     return (
     <div>
-        <>
-            {user !== null ? `hello ${user.email}` : <></> }
+        <div className="h5">
+            {user !== null ? `Hello ${user.email}` : <></> }
+            
+        </div>
 
-        </>
         <div className="mt-4 bg bg-info">
             <div className="cardsTitleHolder">
-                <h1 className="descriptionTitle">See The Lovely Dogs Available</h1>
+                <h1 className="descriptionTitle">Take a look at some of our wonderful dogs! </h1>
             </div>
+            <div className="text-center">
+                <h5> 
+                    <p>Scroll through to see all the cute, loving and beautiful dogs that are currently in the dog shelter.</p>
+                    <p>For more details click on 'Find Out More' button. You can save your favourites by clicking on the 'Heart' button.</p>
+                    <p>Click on the 'We-Time Session' button to book a session with the dog of your choice.</p>
+                </h5>
+            </div><br></br>
+           
             <div className="d-flex justify-content-center">
-                <div className="grid-container gap-5 cardDisplay ">
+                <div className="grid-container gap-5 cardDisplay ms-2">
                     {store.dog.map((item, index) => {
                     return (
                         <div>

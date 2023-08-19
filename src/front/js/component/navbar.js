@@ -30,26 +30,21 @@ export const Navbar = (props) => {
 						</Link>
 					</div>	
 
-					{/*<div className="dropdown ml-auto">
+					
+				
+				
+				<div className="ml-auto">
+					{logoutCondition && <button onClick={() => actions.logOut(navigate)} className="btn btn-primary">Log Out</button>}
+					{logoutCondition && <div className="btn-group">
 						<button
-							className="btn btn-warning dropdown-toggle me-5 favorites"
+							className="btn btn-outline-primary btn-lg dropdown-toggle favorites"
 							type="button"
 							data-bs-toggle="dropdown"
 							aria-expanded="false">
-								<h5>Favorites</h5>
-								<div
-									className="bg bg-warning "
-									style={{
-									width: "30px",
-									textAlign: "center",
-									borderRadius: "15px",
-									}}>
-									<span>
-									<strong>{store.favorites.length}</strong>
-									</span>
-								</div>
+								<h6>Favorites  <span className="badge bg bg-primary text-white">{store.favorites.length}</span></h6>
+								
 						</button>
-							<ul className="dropdown-menu bg bg-warning">
+							<ul className="dropdown-menu bg bg-primary text-white ps-2">
 								{store.favorites.length > 0 ? (
 									store.favorites.map((item, index) => {
 								return (
@@ -71,7 +66,7 @@ export const Navbar = (props) => {
 												type="button">
 												{showHover == index ? (
 												<div style={{ width: "40px", textAlign: "center" }}>
-													<i class="fa fa-times"></i>
+													<i className="fa fa-times"></i>
 												</div>
 												) : (
 												""
@@ -86,11 +81,7 @@ export const Navbar = (props) => {
 									<p className="emptyList fw-bold">No favorites yet</p>
 								)}
 							</ul>
-								</div>*/}
-				
-				
-				<div className="ml-auto">
-					{logoutCondition && <button onClick={() => actions.logOut(navigate)} className="btn btn-primary">Log Out</button>}
+								</div>}
 				</div>
 			</div>
 		</nav>
