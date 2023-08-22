@@ -5,6 +5,8 @@ from flask import Flask, request, jsonify, url_for, Blueprint, redirect
 from api.models import db, User, Dog, Favorite, Report, Appointment
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+import os
+import stripe
 
 
 
@@ -191,11 +193,39 @@ def delete_appointment(appointment_id):
     
     return jsonify(all_appointments), 200
 
+# This is your test secret API key.
+# print(os.getenv('SECRET_KEY'))
+stripe.api_key = os.getenv('SECRET_KEY')
 
+@api.route('/create-checkout-session', methods=['POST'])
+def create_checkout_session():
+    try:
+        checkout_session = stripe.checkout.Session.create(
+            line_items=[{
+                'price_data': {
+                    'currency': 'eur',
+                    'product_data': {
+                    'name': 'We-Time Session',
+                    },
+                    'unit_amount': 50,
+                },
+                'quantity': 1,
+                }],
+            mode='payment',
+            success_url='https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3000.app.github.dev/success',
+            cancel_url='https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3000.app.github.dev/canceled',
+        )
+    except Exception as e:
+        return str(e)
 
+    return redirect(checkout_session.url, code=303)
 
 if __name__ == '__main__':
     api.run(port=4242)
+
+
+
+
 # this only runs if `$ python src/app.py` is executed
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3000))

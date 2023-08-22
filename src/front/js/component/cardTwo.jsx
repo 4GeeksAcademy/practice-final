@@ -71,7 +71,7 @@ const CardTwo = (props) => {
 						<Link to="/login" ><br></br><Button/></Link>
 					</h5>
             	</div>
-				<div className="col-sm-4 mt-5">
+					<div className="col-sm-4 mt-5">
 						<img src={props.imageUrlTwo} className="img-fluid rounded-start" width="400"  height="900" alt="..."/>
 					</div>
 				</div>
