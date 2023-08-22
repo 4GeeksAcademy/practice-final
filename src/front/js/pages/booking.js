@@ -26,9 +26,10 @@ export const Booking = () => {
 		.then((data) => actions.setDogData(data));
 	}, []);
 
-
+    const data = localStorage.getItem("user")
+    const parseData = JSON.parse(data)
     const [values, handleInputChange] = useForm({
-        user_id: store.user.user_id,
+        user_id: parseData.id,
         dog_id:'',
         time:'',
         user_comment:'',
@@ -95,12 +96,12 @@ const createAppointment = async (event) => {
                 <div className="d-flex">
                     <Form.Group className="mb-3 w-100" controlId="userName">
                         <Form.Label> Name</Form.Label>
-                        <Form.Control type="user name" placeholder="" defaultValue={store.user.name} />
+                        <Form.Control type="user name" placeholder="" defaultValue={parseData.user.name} />
                     </Form.Group>
                     <br />
                     <Form.Group className="mb-3 flex-shrink-1" controlId="userId">
                         <Form.Label> ID</Form.Label>
-                        <Form.Control type="user id" placeholder="" defaultValue={store.user.user_id} />
+                        <Form.Control type="user id" placeholder="" defaultValue={parseData.id} />
                     </Form.Group>
                 </div>
                 <br />

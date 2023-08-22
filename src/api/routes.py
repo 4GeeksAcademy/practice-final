@@ -60,7 +60,7 @@ def protected():
     current_user_id = get_jwt_identity()
     user = User.query.get(current_user_id)
     
-    return jsonify({"id": user.id, "email": user.email }), 200
+    return jsonify({"id": user.id, "user": user.serialize() }), 200
 
 @api.route('/dog', methods=['GET'])
 def handle_get_all_dog():

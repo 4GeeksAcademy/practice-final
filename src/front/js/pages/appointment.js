@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Table from 'react-bootstrap/Table';
 import { Link } from "react-router-dom";
-
 import { Context } from "../store/appContext";
 
 
@@ -59,6 +58,7 @@ export const Appointments = (props) => {
                         <tr>
                             <th>Date and time</th>
                             <th>Dog</th>
+                            <th>Notes</th>
                             <th>Proceed</th>
                             <th>Cancel</th>
                         </tr>
@@ -68,12 +68,12 @@ export const Appointments = (props) => {
                             <tbody key={appointment.id}>
                                 <tr>
                                 <td>{formatDateTime(appointment.time)}</td>
-                                {store.dogs.map((dog) => {
+                               {store.dogs.map((dog) => {
                                     if (dog.id === appointment.dog_id){
                                         return (
                                             <td> {dog.name}</td>
                                         );}
-                                    })}
+                                    })}  
                                 <td>{appointment.user_comment}</td>
                                 
                                 <td>

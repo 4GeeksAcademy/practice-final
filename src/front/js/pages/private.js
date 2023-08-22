@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Dogs } from "./dogs";
@@ -12,8 +12,14 @@ import "../../styles/home.css";
 
 export const Private = () => {
 	const { store, actions } = useContext(Context);
-	
 
+	useEffect(()=>{
+		actions.getUser()
+		
+	}, []) 
+	const data = localStorage.getItem("user")
+	const parseData = JSON.parse(data)
+	
 	return (
 		<div className="container">
 			{console.log(store)}
@@ -30,7 +36,7 @@ export const Private = () => {
 					</Tab>
 				</TabList>
 				<TabPanel>
-					<h2>Welcome back {store.user.name.split(" ")[0]}! </h2>
+					<h2>Welcome back {parseData.user.name}! </h2>
 					<br />
 					<UserHome />	
 				</TabPanel>

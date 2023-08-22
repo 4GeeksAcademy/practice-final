@@ -24,10 +24,6 @@ export const Dogs = () => {
 
     return (
     <div>
-        <div className="h5">
-            {user !== null ? `Hello ${user.email}` : <></> }
-            
-        </div>
 
         <div className="mt-4 bg bg-info">
             <div className="cardsTitleHolder">

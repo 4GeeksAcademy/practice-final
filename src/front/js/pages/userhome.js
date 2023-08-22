@@ -11,7 +11,7 @@ export const UserHome = (props) => {
             .then((data) => actions.setAppointmentData(data))
             .catch(error => console.error('Error fetching appointments', error));
         
-        fetch(process.env.BACKEND_URL +"/api/dogs")
+        fetch(process.env.BACKEND_URL +"/api/dog")
             .then((result) => result.json())
             .then((data) => actions.setDogData(data))
             .catch(error => console.error('Error fetching dogs', error));       
@@ -25,7 +25,7 @@ export const UserHome = (props) => {
   const appointmentCount = store.appointments.length;
   const plural = appointmentCount !== 1;
   const cardColor = ['danger','success','info','warning','dark','light','secondary','primary'];
-  
+  console.log(store.dogs)
 
   return (
       <div className="container">
@@ -44,7 +44,7 @@ export const UserHome = (props) => {
                           return (
                               <Card.Header>{dog.name}</Card.Header>
                           );}
-                      })}
+                      })}  
                     <Card.Body>
                       <Card.Title>{formatDate(appointment.time)}</Card.Title>
                     </Card.Body>
