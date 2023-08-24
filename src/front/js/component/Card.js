@@ -9,6 +9,8 @@ import 'react-datepicker/dist/react-datepicker.css'
 const Card = (props) => {
   const { store, actions } = useContext(Context);
   const [date, setDate] = useState(new Date());
+  const data = localStorage.getItem("user")
+	const parseData = JSON.parse(data)
 
   return (
 
@@ -56,6 +58,7 @@ const Card = (props) => {
               if (store.favorites.includes(props.item.name)) {
                 alert("Dog already on the list");
               } else {
+                actions.addDogToFavourite(props.item.id, parseData.id)
                 actions.addFavorites(props.item.name);
               }
             }}>

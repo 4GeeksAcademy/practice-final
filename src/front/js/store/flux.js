@@ -100,6 +100,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				setStore({ favorites: [...store.favorites, name] });
 			  },
+
+			addDogToFavourite: async (dog_id, user_id) => {
+				try {
+					const response = await fetch(
+						"https://sanghmitra2023-potential-rotary-phone-5wgpxxjgw5rfx97-3001.app.github.dev/api/favorite/dog/"+dog_id,
+						{
+							method: "POST",
+							headers: {
+								"Content-Type": "application/json",
+							},
+							body: JSON.stringify({
+								"id": user_id,
+								
+							}),
+						}
+					);
+
+					if (response.ok) {
+						const data = await response.json()
+						return true
+					}
+				} catch (error) {
+					console.log(error);
+				};
+				return false
+
+			},
+
 		
 			deleteItem: (i) => {
 				const store = getStore();

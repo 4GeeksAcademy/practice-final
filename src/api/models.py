@@ -36,10 +36,9 @@ class Favorite(db.Model):
     dog = relationship("Dog")
     user = relationship("User")
 
-    def __init__(self, name, dog, user):
-        self.name = name
-        self.dog = dog
-        self.user = user
+    def __init__(self, dog_id, user_id):
+        self.dog_id = dog_id
+        self.user_id = user_id
 
     def __repr__(self):
         return '<Favorite %r>' % self.id
