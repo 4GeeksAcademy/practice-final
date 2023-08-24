@@ -18,7 +18,7 @@ export const ProductDisplay = () => (
       </div>
       <form action={process.env.BACKEND_URL+'/api/create-checkout-session'}  method="POST">
         <button type="submit" className="btn btn-primary">
-          Checkout
+          Donate
         </button>
       </form>
     </div>

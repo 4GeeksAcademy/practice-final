@@ -36,6 +36,7 @@ export const Login = () => {
             return;
         }
         const success = await actions.login(email, password, navigate);
+        actions.getUser()
         if (!success) {
             setShowModal(true);
         }

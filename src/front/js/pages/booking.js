@@ -11,7 +11,8 @@ import "react-datepicker/dist/react-datepicker.css";
 
 export const Booking = () => {
     const { store, actions } = useContext(Context);
-    
+   
+	 
     
     const navigate = useNavigate();
 
@@ -68,7 +69,7 @@ const createAppointment = async (event) => {
          const response = await fetch(process.env.BACKEND_URL+'/api/booking',{
             method: 'POST',
             body: JSON.stringify({
-                user_id: store.user.user_id,
+                user_id: parseData.id,
                 dog_id: dog_id,
                 time: time,
                 user_comment: user_comment

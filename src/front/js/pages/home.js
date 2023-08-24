@@ -105,6 +105,7 @@ export const Home = () => {
 					detailFive={cardTwo.detailFive}
 				/>)}
 		  	</div>
+            
             <div className="row gap-4 m-4">
               <h1 className="p-4"> How does Hello Woof Work? </h1>
               <h3 className="text-info">In three easy steps you get to play and spend quality time with your dog friend</h3>
@@ -122,16 +123,16 @@ export const Home = () => {
 						<h4 className="display-5 text-center">What Our Users Have To Say</h4><br></br>
 						<h4 className="text-success text-center">We have more than 1000 5-Star reviews!</h4><br></br>
 							<div className="row gap-4 m-4">
-							{dataThree.map(reviewCard =><ReviewCard
-								header={reviewCard.header}
-								titleThree={reviewCard.titleThree}
-								descriptionThree={reviewCard.descriptionThree}
-								footer={reviewCard.footer}
+                                {dataThree.map(reviewCard =><ReviewCard
+                                    header={reviewCard.header}
+                                    titleThree={reviewCard.titleThree}
+                                    descriptionThree={reviewCard.descriptionThree}
+                                    footer={reviewCard.footer}
 								
 								/>)}
 							</div>
 					</div>
-				</div>
+			</div>
                 
             <div className="text-container">
                 <p className="typed">This is a paragraph of typed text.</p>
