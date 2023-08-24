@@ -68,12 +68,18 @@ const Card = (props) => {
           </button>
         </div>
       </div>
+
+      <div className="text-center">
+            <Link to='/checkout'>
+              <button className="btn btn-outline-primary ms-2">Pay</button>
+					  </Link>
+      </div> 
       
       {/*<div className="text-center">
         <button className="btn btn-outline-primary">
               <a href="https://donate.stripe.com/test_4gwdTjfu0gbF9GgaEE">Pay Now</a>
         </button>
-      </div>*/}
+      </div> */}
 
     </div>
   );

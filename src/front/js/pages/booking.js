@@ -17,9 +17,6 @@ export const Booking = () => {
     const navigate = useNavigate();
 
     const [startDate, setStartDate] = useState(new Date());
-    let handleColor = (time) => {
-        return time.getHours() > 12 ? "text-success" : "text-error";
-      };
     
     useEffect(() =>{
 		fetch(process.env.BACKEND_URL +"/api/dog")
@@ -128,6 +125,10 @@ const createAppointment = async (event) => {
                 <Form.Group className="mb-3" controlId="timeSelect" type="date"  name="time" value={time}>
                     <DatePicker
                         showTimeSelect
+                        filterDate={date => date.getDay() !=1}
+                        minTime={new Date(0, 0, 0, 12, 0)}
+                        maxTime={new Date(0, 0, 0, 21, 0)}
+                        timeIntervals={60}
                         selected={startDate}
                         onChange={(date) => {
                         setStartDate(date)
@@ -137,7 +138,7 @@ const createAppointment = async (event) => {
                             value: date.toJSON(),
                         }
                     })}}
-                        timeClassName={handleColor}
+                        
                     />
                 </Form.Group>
                 <br />
