@@ -39,7 +39,7 @@ export const UserHome = (props) => {
               {store.appointments.map((appointment, index) => {
               return (
                   <Card border={cardColor[index % cardColor.length]} style={{ width: '18rem', marginRight: "12px", boxShadow: "3px 3px 3px 2px #9E9E9E" }} key={appointment.id}>
-                    {store.dogs.map((dog) => {
+                    {store.dog.map((dog) => {
                       if (dog.id === appointment.dog_id){
                           return (
                               <Card.Header>{dog.name}</Card.Header>

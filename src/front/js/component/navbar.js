@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import iconImageUrl from "../../img/icon.png";
@@ -11,7 +11,15 @@ export const Navbar = (props) => {
 	const [showHover, setShowHover] = useState(-1);
 
 	const logoutCondition = location.pathname !== "/login" && location.pathname !== "/" && location.pathname !== "/signup"
+	const data = localStorage.getItem("user")
+	const parseData = JSON.parse(data)
 	
+	useEffect(()=>{
+		console.log("inside useEffect")
+		actions.getFavouriteDogs(parseData.id)
+	},[])
+
+	console.log(store.favorite)
 
 	return (
 		<nav className="navbar navbar-light bg-white">

@@ -128,6 +128,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
+			getFavouriteDogs: async (id) => {
+				const store = getStore()
+				try {
+					const response = await fetch(process.env.BACKEND_URL+'/api/user/favorite/'+id)
+					if (response.ok) {
+						const data = await response.json();
+						setStore({ favorites: [...store.favorites, ]})
+					}
+				}
+				catch (error) {
+					console.log(error)
+				}
+
+			},
+
 		
 			deleteItem: (i) => {
 				const store = getStore();

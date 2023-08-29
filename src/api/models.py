@@ -12,6 +12,7 @@ class User(db.Model):
     password = db.Column(db.String(250), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, default=False)
     appointments = db.relationship('Appointment', backref='user', lazy=True)
+    favorites = db.relationship('Favorite', backref='user_favorites', lazy=True)
 
     def __init__(self, name, email, password):
         self.name = name
@@ -34,7 +35,7 @@ class Favorite(db.Model):
     user_id = db.Column(db.Integer, ForeignKey('user.id'), nullable=False)
     dog_id = db.Column(db.Integer, ForeignKey('dog.id'), nullable=True)
     dog = relationship("Dog")
-    user = relationship("User")
+    user = relationship("User",overlaps="favorites,user_favorites")
 
     def __init__(self, dog_id, user_id):
         self.dog_id = dog_id

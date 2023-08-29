@@ -38,21 +38,16 @@ export const Dogs = () => {
             </div><br></br>
            
             <div className="d-flex justify-content-center">
-                <div className="grid-container gap-5 cardDisplay ms-2">
+                <div className="grid-container gap-5 cardDisplay ms-3">
                     {store.dog.map((item, index) => {
                     return (
                         <div>
-                            <div className="">
-                                
-                                    <Card
-                                        item={item}
-                                        key={index}
-                                        id={index}
-                                        favorite={actions.addFavorites}
-                                    />
-                                
-                            </div>
-                        
+                            <Card
+                                item={item}
+                                key={index}
+                                id={index}
+                                favorite={actions.addFavorites}
+                            />
                         </div>
                         );
                     })}
